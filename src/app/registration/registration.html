@@ -1,86 +1,86 @@
 <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="p-4">
-  <mat-form-field appearance="fill" class="w-100 mb-3">
-    <mat-label>Username</mat-label>
-    <input matInput id="username" formControlName="username" placeholder="Enter username">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
     @if (registrationForm.get('username')?.touched && registrationForm.get('username')?.invalid) {
-      <mat-error>
+      <div class="text-danger">
         @if (registrationForm.get('username')?.errors?.['required']) {
-          Username is required
+          <small>Username is required</small>
         }
         @if (registrationForm.get('username')?.errors?.['minlength']) {
-          Username must be at least 3 characters
+          <small>Username must be at least 3 characters</small>
         }
-      </mat-error>
+      </div>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill" class="w-100 mb-3">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" id="email" formControlName="email" placeholder="Enter email">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
     @if (registrationForm.get('email')?.touched && registrationForm.get('email')?.invalid) {
-      <mat-error>
+      <div class="text-danger">
         @if (registrationForm.get('email')?.errors?.['required']) {
-          Email is required
+          <small>Email is required</small>
         }
         @if (registrationForm.get('email')?.errors?.['email']) {
-          Please enter a valid email
+          <small>Please enter a valid email</small>
         }
-      </mat-error>
+      </div>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill" class="w-100 mb-3">
-    <mat-label>Password</mat-label>
-    <input matInput type="password" id="password" formControlName="password" placeholder="Enter password">
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter password">
     @if (registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid) {
-      <mat-error>
+      <div class="text-danger">
         @if (registrationForm.get('password')?.errors?.['required']) {
-          Password is required
+          <small>Password is required</small>
         }
         @if (registrationForm.get('password')?.errors?.['minlength']) {
-          Password must be at least 6 characters
+          <small>Password must be at least 6 characters</small>
         }
-      </mat-error>
+      </div>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill" class="w-100 mb-3">
-    <mat-label>Confirm Password</mat-label>
-    <input matInput type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm password">
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm password">
     @if (registrationForm.get('confirmPassword')?.touched && registrationForm.get('confirmPassword')?.invalid) {
-      <mat-error>
+      <div class="text-danger">
         @if (registrationForm.get('confirmPassword')?.errors?.['required']) {
-          Please confirm your password
+          <small>Please confirm your password</small>
         }
         @if (registrationForm.get('confirmPassword')?.errors?.['passwordMismatch']) {
-          Passwords do not match
+          <small>Passwords do not match</small>
         }
-      </mat-error>
+      </div>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill" class="w-100 mb-3">
-    <mat-label>Civil Number</mat-label>
-    <input matInput id="civilNumber" formControlName="civilNumber" placeholder="Enter your civil number" pattern="\\d{12}">
+  <div class="mb-3">
+    <label for="civilNumber" class="form-label">Civil Number</label>
+    <input type="text" class="form-control" id="civilNumber" formControlName="civilNumber" placeholder="Enter your civil number">
     @if (registrationForm.get('civilNumber')?.touched && registrationForm.get('civilNumber')?.invalid) {
-      <mat-error>
+      <div class="text-danger">
         @if (registrationForm.get('civilNumber')?.errors?.['required']) {
-          Civil number is required
+          <small>Civil number is required</small>
         }
         @if (registrationForm.get('civilNumber')?.errors?.['minlength'] || registrationForm.get('civilNumber')?.errors?.['maxlength']) {
-          Civil number must be exactly 12 digits
+          <small>Civil number must be exactly 12 digits</small>
         }
         @if (registrationForm.get('civilNumber')?.errors?.['pattern']) {
-          Civil number must contain only digits
+          <small>Civil number must contain only digits</small>
         }
-      </mat-error>
+      </div>
     }
-  </mat-form-field>
+  </div>
 
-  <mat-form-field appearance="fill" class="w-100 mb-3">
-    <mat-label>Description</mat-label>
-    <textarea matInput id="description" formControlName="description" placeholder="Enter a brief description about yourself" rows="3"></textarea>
-  </mat-form-field>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" id="description" formControlName="description" placeholder="Enter a brief description about yourself" rows="3"></textarea>
+  </div>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
+  <button class="btn btn-primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
 </form>
