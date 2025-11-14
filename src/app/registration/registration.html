@@ -77,5 +77,10 @@
     }
   </mat-form-field>
 
+  <mat-form-field appearance="fill" class="w-100 mb-3">
+    <mat-label>Description</mat-label>
+    <textarea matInput id="description" formControlName="description" placeholder="Enter a brief description about yourself" rows="3"></textarea>
+  </mat-form-field>
+
   <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
 </form>
